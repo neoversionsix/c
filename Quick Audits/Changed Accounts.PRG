@@ -1,4 +1,5 @@
-select	; WHS users	that were created in the last 8 hours by the current user
+select	
+; WHS users	that were created in the last 8 hours by the user running the CCL
 	p.name_last	
 	, p.name_first	
 	, p.name_full_formatted
