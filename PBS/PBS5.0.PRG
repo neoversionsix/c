@@ -1,4 +1,4 @@
-select	; pbs mapping extract	
+select	; pbs mapping extract PART 1 OF 2 (ROW 79/80 SWITCH)	
 	extract_meta = concat( trim(curdomain) ,' (', format(sysdate,"yyyymmdd hhmm;3;q"), ")" )	
 	, pbs_code = list.pbs_item_code	
 	, item_beg_date = format(item.beg_effective_dt_tm, "dd/MMM/yyyy")	
