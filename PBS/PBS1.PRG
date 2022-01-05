@@ -1,4 +1,8 @@
-select	*	; PBS drug replacement corrections	
+select	*
+/*
+PBS drug replacement corrections
+\\whoffice\shared\EMR\BAU\Audit Spreadsheets\PBS audits\Spreadsheets\PBS Processing 1 - monthly drug replacement corrections.xlsx
+*/
 from	(		
 	(select		
 		pbs_code = list.pbs_item_code	
