@@ -1,12 +1,12 @@
 select	
 ; WHS users	that were created in the last 8 hours by the user running the CCL
-	p.name_last	
+	p.username
+	, p.name_last	
 	, p.name_first	
 	, p.name_full_formatted
 	, credential = uar_get_code_display(cred.credential_cd)	
 	, prsnl_active = p.active_ind
 	, physician_ind = p.physician_ind	
-	, p.username
 	, postion = uar_get_code_display(p.position_cd)
 	, prsnl_beg_dt = format(p.beg_effective_dt_tm, "dd/mm/yyyy")	
 	, prsnl_end_dt = format(p.end_effective_dt_tm, "dd/mm/yyyy")	
