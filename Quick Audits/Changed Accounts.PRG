@@ -5,7 +5,8 @@ select
 	, p.name_full_formatted
 	, prsnl_active = p.active_ind
 	, physician_ind = p.physician_ind	
-	, p.username	
+	, p.username
+	, credential = uar_get_code_display(cred.credential_cd)	
 	, postion = uar_get_code_display(p.position_cd)
 	, prsnl_beg_dt = format(p.beg_effective_dt_tm, "dd/mm/yyyy")	
 	, prsnl_end_dt = format(p.end_effective_dt_tm, "dd/mm/yyyy")	
