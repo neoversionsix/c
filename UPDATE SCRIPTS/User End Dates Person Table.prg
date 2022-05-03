@@ -5,6 +5,9 @@ create program WHS_bulk_updates
 This script finds accounts on the person table
 where the end date > year 2100 and then changes
 the end date of those accounts to 31-DEC-2100 23:59:59.00
+
+this fixes the issue where opening a users account in
+hnauser causes hnauser to immediately close
 */
  
 prompt
