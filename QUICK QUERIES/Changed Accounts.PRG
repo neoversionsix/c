@@ -8,13 +8,13 @@ select
 	, prsnl_active = p.active_ind
 	, physician_ind = p.physician_ind	
 	, postion = uar_get_code_display(p.position_cd)
-	, prsnl_beg_dt = format(p.beg_effective_dt_tm, "dd/mm/yyyy")	
-	, prsnl_end_dt = format(p.end_effective_dt_tm, "dd/mm/yyyy")	
-	, prsnl_create_dt = format(p.create_dt_tm, "dd/mm/yyyy")	
+	, prsnl_beg_dt = format(p.beg_effective_dt_tm, "dd/mm/yyyy HH:MM:SS")	
+	, prsnl_end_dt = format(p.end_effective_dt_tm, "dd/mm/yyyy HH:MM:SS")	
+	, prsnl_create_dt = format(p.create_dt_tm, "dd/mm/yyyy HH:MM:SS")	
 	, prsnl_creator = if(p.person_id > 0 and p.create_prsnl_id = 0) "0"	
 	else p_p_create.name_full_formatted	
 	endif		
-	, prsnl_active_status_dt = format(p.active_status_dt_tm, "dd/mm/yyyy")	
+	, prsnl_active_status_dt = format(p.active_status_dt_tm, "dd/mm/yyyy HH:MM:SS")	
 	, prsnl_active_status_updater = if(p.person_id > 0 and p.active_status_prsnl_id = 0) "0"	
 	else p_p_act_stat.name_full_formatted	
 	endif		
@@ -23,7 +23,7 @@ select
 	else p_p.name_full_formatted	
 	endif	
 	, p.person_id	
-	, last_logon = format( p_activity.last_act , "dd/mm/yyyyy")	
+	, last_logon = format( p_activity.last_act , "dd/mm/yyyyy HH:MM:SS")	
 	, Demo1_org = if(p_org_r_Demo.prsnl_org_reltn_id > 0) "x"	
 	else ""	
 	endif	
@@ -54,8 +54,8 @@ select
 ;	, org_dr_alias_active_status_cd = if(p_a_org_dr.prsnl_alias_id > 0) cnvtstring(p_a_org_dr.active_status_cd)	
 ;	else ""	
 ;	endif	
-	, org_dr_alias_beg_dt = format(p_a_org_dr.beg_effective_dt_tm, "dd/mm/yyyy")	
-	, org_dr_alias_end_dt = format(p_a_org_dr.end_effective_dt_tm, "dd/mm/yyyy")	
+	, org_dr_alias_beg_dt = format(p_a_org_dr.beg_effective_dt_tm, "dd/mm/yyyy HH:MM:SS")	
+	, org_dr_alias_end_dt = format(p_a_org_dr.end_effective_dt_tm, "dd/mm/yyyy HH:MM:SS")	
 	, org_dr_alias_last_update = format(p_a_org_dr.updt_dt_tm, "dd/mm/yy hh:mm:ss")	
 	, org_dr_alias_last_updater = if(p_a_org_dr.prsnl_alias_id > 0 and p_a_org_dr.updt_id = 0) "0"	
 	else p_p_a_org_dr.name_full_formatted	
@@ -84,8 +84,8 @@ select
 ;	, alias_active_status_cd = if(p_a_ext_id.prsnl_alias_id > 0) cnvtstring(p_a_ext_id.active_status_cd)	
 ;	else ""	
 ;	endif	
-	, alias_beg_dt = format(p_a_ext_id.beg_effective_dt_tm, "dd/mm/yyyy")	
-	, alias_end_dt = format(p_a_ext_id.end_effective_dt_tm, "dd/mm/yyyy")	
+	, alias_beg_dt = format(p_a_ext_id.beg_effective_dt_tm, "dd/mm/yyyy HH:MM:SS")	
+	, alias_end_dt = format(p_a_ext_id.end_effective_dt_tm, "dd/mm/yyyy HH:MM:SS")	
 ;	, alias_contributor_system_cd = if(p_a_ext_id.prsnl_alias_id > 0) cnvtstring(p_a_ext_id.contributor_system_cd)	
 ;	else ""	
 ;	endif	
@@ -101,8 +101,8 @@ select
 	, cred_active = if(cred.credential_id > 0) cnvtstring(cred.active_ind)	
 	else ""	
 	endif	
-	, cred_beg_dt = format(cred.beg_effective_dt_tm, "dd/mm/yyyy")	
-	, cred_end_dt = format(cred.end_effective_dt_tm, "dd/mm/yyyy")	
+	, cred_beg_dt = format(cred.beg_effective_dt_tm, "dd/mm/yyyy HH:MM:SS")	
+	, cred_end_dt = format(cred.end_effective_dt_tm, "dd/mm/yyyy HH:MM:SS")	
 	, cred_count = count(distinct cred.credential_id) over (partition by cred.prsnl_id)	
 	, cred_last_update = format(cred.updt_dt_tm, "dd/mm/yy hh:mm:ss")	
 	, cred_last_updater = if(cred.credential_id > 0 and cred.updt_id = 0) "0"	
