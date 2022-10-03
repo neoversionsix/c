@@ -10,7 +10,6 @@ select
 	, postion = uar_get_code_display(p.position_cd)
 	, prsnl_beg_dt = format(p.beg_effective_dt_tm, "dd/mm/yyyy HH:MM:SS")	
 	, prsnl_end_dt = format(p.end_effective_dt_tm, "dd/mm/yyyy HH:MM:SS")	
-	
 	, prsnl_last_update = format(p.updt_dt_tm, "dd/mm/yy hh:mm:ss")	
 	, prsnl_last_updater = if(p.person_id > 0 and p.updt_id = 0) "0"	
 	else p_p.name_full_formatted	
