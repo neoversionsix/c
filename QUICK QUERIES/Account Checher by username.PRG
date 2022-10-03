@@ -1,5 +1,5 @@
 select	
-; WHS users	that were created in the last 8 hours by the user running the CCL
+; Brings Back users from a given list of usernames
 	p.username
 	, p.name_last	
 	, p.name_first	
@@ -109,9 +109,7 @@ from
 	)	
 	, (left join prsnl p_cred on p_cred.person_id = cred.updt_id)	
 	, (left join prsnl_alias p_a_org_dr on p_a_org_dr.person_id = p.person_id 	
-;	and p_a_org_dr.active_ind = 1	
-;	and p_a_org_dr.beg_effective_dt_tm < sysdate	
-;	and p_a_org_dr.end_effective_dt_tm > sysdate	
+
 	and p_a_org_dr.alias_pool_cd = 9633666	; 'IPM MAIN CODE' from code set 263
 	)	
 	, (left join prsnl p_p_a_org_dr on p_p_a_org_dr.person_id = p_a_org_dr.updt_id)	
