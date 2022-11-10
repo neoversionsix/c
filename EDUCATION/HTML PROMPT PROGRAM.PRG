@@ -3,7 +3,7 @@ create program wh_jw_test_example_1
 
 prompt 
 	"Output to File/Printer/MINE" = "MINE"   ;* Enter or select the printer or file name to send this report to.
-	, "Person ID?" = 14126208 
+	, "Person ID?" = 123456 
 
 with OUTDEV, PID
 
